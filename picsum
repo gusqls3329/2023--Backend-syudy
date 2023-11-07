@@ -1,0 +1,93 @@
+/*<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "container"></div>
+    <script>
+        var $container = document.querySelector('#container');
+       /* $container.append('안녕')
+        $container.append('하세요') //append : 원래있던곳에서 뒤쪽으로 추가하는 것 */
+
+        /*var $myDiv = document.createElement('div');
+        $myDiv.innerHTML = '<b>반가워</b>'; // '<b>글<b>' 글을 굵게 만들어줌.
+        $container.append($myDiv);*/
+
+        function makeList(res){
+            res.forEach(item =>{
+                console.log(item);
+
+                const elem = makeItem(item);
+                $container.appendChild(elem); 
+                       });
+        }
+
+        function makeItem(item){
+            const $div = document.createElement('div');
+            $div.innerHTML = `
+                <img src = "${item.download_url}" alt="${item.author}">
+                <div>작가: ${item.author}</div>
+            `;
+            return $div
+        }
+
+        function getData() {
+            fetch('https://picsum.photos/v2/list')
+            .then(res => res.json())
+            .then(res => {
+                console.log(res);
+            });
+        }
+        getData();
+    </script>
+</body>
+</html>*/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PicSum</title>
+</head>
+<body>
+    <div id = "container"> </div>
+    <script>
+        var $container = document.querySelector('#container');
+        function makeList(res){
+            res.forEach(item => {
+                console.log(item);
+                const elem = makeItem(item);
+                $container.appendChild(elem);
+            });
+        }
+        function makeItem(item){
+            const $div = document.createElement('div');
+            $div.innerHTML = `
+                <img src="${item.download_url}" alt="${item.author}">
+                <div>작가 : ${item.author}</div>
+            `;
+            return $div;
+        }
+        function getData() {
+            fetch('https://picsum.photos/v2/list')
+            .then(res => res.json())
+            .then(res => {
+                console.log(res);
+                makeList(res);
+            });
+        }
+        getData();
+        /*var $myDiv = document.createElement('div');
+        $myDiv.innerHTML = '<b>반가워</b>';
+        $container.append($myDiv);
+        $container.append('안녕');
+        $container.append('하세용');*/
+    </script>
+</body>
+</html>
+
