@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 주석
+        /*  주석
+        json = JavaScript Object Notation
+        */
+       var obj = {
+        name : '홍길동'
+        , age : 22
+        , height: 177.8
+        ,bloodType: 'A'
+        ,isMan : true
+        ,hatit: ['축구','농구','배구']
+        ,bag: {
+            Storage: '노트북'
+        }
+       };
+       /*위코드를 json 형태로 변경하기
+        {
+        "name" : "홍길동"
+        , "age" : 22
+        , "height" : 177.8
+        , "bloodType" : "A"
+        , "isMan" : true
+        , hatit: ["축구","농구","배구"]
+        , "bag" : {
+            Storage: "노트북"
+        }
+       }
+       */
+        console.log(obj.name);
+        console.log(obj.age);
+        console.log(obj.height);
+        console.log(obj.bag.Storage);
+        const json = JSON.stringify(obj); // json 형태로 변경하는 코드
+        console.log('Json : '+json);
+        const obj2 = JSON.parse(json); // 다시 바꿔서 사용
+        console.log('obj2 : '+obj2);
+        console.log(obj2);
+    </script>
+</body>
+</html>
